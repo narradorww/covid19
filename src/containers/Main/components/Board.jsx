@@ -1,6 +1,7 @@
 import React, {memo} from 'react'
 import PropTypes from 'prop-types'
-import {Grid, Skeleton, Card} from '../components'
+import {Grid, Skeleton} from '../../../components'
+import Card from './Card'
 
 
 function Board ({data}){
@@ -10,9 +11,22 @@ function Board ({data}){
     return (
         <Grid container spacing={4}>
             <Grid item xs={12} md={3}>
-                <Card value={getByDisplayValue(cases)} label="Total de casos" color="#5d78ff" />
+                <Card value={getValue(cases)} label="Total de casos" color="#5d78ff" />
+            </Grid>
+            <Grid item xs={12} md={3}>
+                <Card value={getValue(deaths)} label="Total de Óbitos" color="#5d78ff" />
+            </Grid>
+            <Grid item xs={12} md={3}>
+                <Card value={getValue(recovered)} label="Recuperados" color="#5d78ff" />
+            </Grid>
+            <Grid item xs={12} md={3}>
+                <Card value={getValue(todayDeaths)} label="Óbitos nas ultimas 24H" color="#5d78ff" />
+            </Grid>
+            <Grid item xs={12} md={3}>
+                <Card value={getValue(todayCases)} label="Casos nas ultimas 24HS" color="#5d78ff" />
             </Grid>
         </Grid>
     )
 
 }
+export default memo(Board)
