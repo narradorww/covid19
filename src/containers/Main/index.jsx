@@ -9,7 +9,8 @@ import {ContainerStyled } from './style'
 function Main() {
   const [data, setData] = useState({});
   const [country, setCountry] = useState("brazil");
-  const updateAt = new Date().toLocaleString
+  const updateAt = new Date().toLocaleDateString()
+  console.log(updateAt)
 
   const getCovidData = useCallback((country) => {
     Api.getCountry(country)
